@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+	id 'eclipse'
+	id "maven"
+	id "maven-publish"
+
+	id "com.github.ben-manes.versions" version "0.13.0"
+	id 'net.saliman.cobertura' version '2.2.6'
+	id 'co.riiid.gradle' version '0.4.2'
+
+	id "synapticloop.copyrightr" version "1.1.2"
+	id "synapticloop.documentr" version "2.9.0"
+}
+
+version = '1.0.0'
+
+//
+// ensure that you change the following values
+//
+group = 'synapticloop'
+archivesBaseName = 'routemaster-module-templar-handler'
+description = """Templar templating language module support for routemaster"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	runtime 'synapticloop:routemaster:2.1.0'
+
+	compile 'synapticloop:routemaster:2.1.0'
+}
+
+github {
+	owner = group
+	repo = archivesBaseName
+	if(System.getenv('GITHUB_TOKEN')) {
+		token = System.getenv('GITHUB_TOKEN')
+	}
+	tagName = version
+	name = version
+	assets = [
+		'build/libs/' + archivesBaseName + '-' + version + '.jar',
+	]
+}
