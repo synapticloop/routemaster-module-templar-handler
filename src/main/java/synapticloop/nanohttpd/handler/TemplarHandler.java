@@ -24,7 +24,6 @@ import java.io.InputStream;
 import java.util.Map;
 
 import synapticloop.nanohttpd.utils.HttpUtils;
-import synapticloop.nanohttpd.utils.MimeTypeMapper;
 import synapticloop.templar.Parser;
 import synapticloop.templar.exception.ParseException;
 import synapticloop.templar.exception.RenderException;
